@@ -49,13 +49,22 @@ def main():
         game.display()
         # После каждого хода надо делать проверку на победу и на ничью.
         if game.check_win(current_player):
-            print(f'Победили {current_player}!')
+            win_result = f'Победили {current_player}!\n'
+            print(win_result)
+            save_result(win_result)
             running = False
         elif game.is_board_full():
-            print('Ничья!')
+            no_win_result = 'Ничья\n'
+            print(no_win_result)
+            save_result(no_win_result)
             running = False
 
         current_player = 'O' if current_player == 'X' else 'X'
+
+
+def save_result(result):
+    with open('result.txt', 'a', encoding='utf-8') as res_file:
+        res_file.write(result)
 
 
 if __name__ == '__main__':

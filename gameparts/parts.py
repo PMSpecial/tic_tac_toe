@@ -6,7 +6,7 @@ class Board:
     # Пробелы - это пустые клетки.
     # Новый атрибут.
 
-    field_size = 4
+    field_size = 3
 
     def __init__(self):
         self.board = [
